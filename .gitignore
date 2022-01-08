@@ -142,3 +142,5 @@ mmocr/.mim
 workdirs/
 .history/
 .dev/
+
+temp/
