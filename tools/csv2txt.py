@@ -10,6 +10,7 @@ import argparse
 def parse_args():
     parser = argparse.ArgumentParser('Convert annotation file from CSV to TXT')
     parser.add_argument('input', type=str, help='CSV file path')
+    parser.add_argument('imgs', type=str, help='Images folder path')
     parser.add_argument('output', type=str, help='Output folder path')
     args = parser.parse_args()
 
@@ -28,9 +29,9 @@ def csv2txt():
 
     for i, file_name in enumerate(df[0].unique()):
 
-        # img = cv2.imread(os.path.join('/content/devanagari/output', file_name.split('/')[1]))
+        img = cv2.imread(os.path.join(args.imgs, file_name.split('/')[1]))
 
-        data = dict(file_name=file_name.split('/')[1])
+        data = dict(file_name=file_name.split('/')[1], height=img.shape[0], width=img.shape[1])
         ann = []
 
         for row in df.loc[df[0] == file_name].iterrows():

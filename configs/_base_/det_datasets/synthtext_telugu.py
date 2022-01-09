@@ -1,10 +1,10 @@
-root = 'data/synthtext'
+root = '/home/ocr/datasets/synthText/detection-dataset/telugu'
 
 # dataset with type='TextDetDataset'
 train = dict(
     type='TextDetDataset',
-    img_prefix=f'{root}/imgs',
-    ann_file=f'{root}/instances_test.txt',
+    img_prefix=f'{root}/output',
+    ann_file=f'{root}/gt_mmocr_train.txt',
     loader=dict(
         type='HardDiskLoader',
         repeat=4,
@@ -16,8 +16,8 @@ train = dict(
 
 test = dict(
     type='TextDetDataset',
-    img_prefix=f'{root}/imgs',
-    ann_file=f'{root}/instances_test.txt',
+    img_prefix=f'{root}/output',
+    ann_file=f'{root}/gt_mmocr_val.txt',
     loader=dict(
         type='HardDiskLoader',
         repeat=1,
